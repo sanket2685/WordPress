@@ -10,7 +10,7 @@ jobs:
 
     steps:
       - name: Deploy using ssh
-        uses: sanket2685/WordPress@main
+        uses: root/WordPress@main
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
