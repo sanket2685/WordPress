@@ -16,14 +16,14 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:       
     - name: Deploy using ssh
-      uses: WordPress/ssh-action@master
+      uses: /var/www/WordPress/ssh-action@master
       with:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         port: 22
         script: |
-          cd /WordPress
+          cd /var/www/WordPress
           git pull origin main
           git status
           npm install --only=prod
