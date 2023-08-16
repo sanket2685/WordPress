@@ -126,3 +126,54 @@ Step 12 :Commit changes made in your yml code for CI_CD pipeline.
 Step 13 :Watch CI_CD flow in action & if any error accure debug it.
 
 Step 14 : Test the work-flow by making changes in local repo and check if its reflecting on server.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Steps to create SSL/TLS certificate for secure communication
+between the server and clients.
+
+Step 1 : 
+Prerequisites:
+•	A registered domain name pointing to your server's IP address.
+•	Root or administrative access to your server.
+
+step 2 :
+   Install Certbot
+   Certbot is a command-line tool provided by Let's Encrypt that simplifies the process of obtaining and managing SSL certificates.
+  commands :sudo apt update
+           sudo apt install certbot python3-certbot-nginx
+step 3 :
+   Obtain a Certificate:
+  command : sudo certbot --nginx
+step 4:
+   Testing:
+   Test your website after enabling SSL/TLS to ensure everything is working as expected. Make sure the padlock icon appears in the
+   browser's address bar.   
+ 
+NOTE: If this does not work for creating certificate you can use other methods for creating ssl/tls certificates but its is less secure 
+     
+Step to get self sign certificates for SSL:
+
+Step 1 : Generate a RSA private key 
+  command : opensslgenrsa -des3 -out myhostname.key 4096
+Step 2: Set pass phrase for myhostname.key
+Step 3 : creating a signing request
+  command :openssl req -new -key myhost.key -out myhostname.csr
+    enter pass phrase and fill deatils
+Step 4 : Copy key 
+  command : cp myhostname.key myhostname.key.pw
+Step 5 :
+   command: cp openssl rsa -in myhostname.key.pw -out myhostname.key
+Step 6 :
+  cat myhostname.csr
+Step 7 : Requesting to sign certificate
+  command : openssl x509 -req -in myhostname.csr -signkey myhostname.key -out myhostname.crt
+Step 8 : create a directory to save certificate 
+   command : sudo mkdir /etc/nginx/ssl
+Step 9 :
+  command : sudo cp myhostname.crt /etc/nginx/ssl
+  command : sudo cp myhostname.key /etc/nginx/ssl
+Step 10 :
+     edit nginx confg file and enable server 
+     restart nginx
