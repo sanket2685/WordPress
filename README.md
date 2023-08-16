@@ -46,6 +46,7 @@ command: -------ufw enable-----
 •	You can type the following command to elevate to the root access as and when required
 
 command: ----------sudo su------
+
 -------------------------------------------------------------------------------------------------------
 
 Steps to install LEMP stack (Linux, Nginx, MySQL, PHP) on Ubuntu server :
@@ -99,16 +100,29 @@ Steps to create CI-CD pipeline using Git hub actions :
 
 
 Step 1 : create a repository for your project in git-hub.
+
 Step 2 : Clone the repository to your local repository.
+
 Step 3: Go to setting then go to secret  ---> Actions ---> Repository secrets.
+
 Step 4 : Create secrets for HOST with host ip address.
+
 Step 5: Create user name as root because we will be connecting with root to server.
+
 Step 6 : create SSH private key, for creating ssh key visit your linux / ubuntu server.
+
 Step 7 : Generate SSH key by using command: ssh-keygen -t rsa -b 4096 -t "email address.
+
 Step 8 : Once you get SSH key create SSH_PRIVATE_KEY in your actions secret.
+
 Step 9 : Create directory in server.
+
 Step 10 : Clone your repository in newly created directory.
+
 Step 11: Go to actions tab click on steup a workflow yourself , write yaml file for CI_CD pipeline.
+
 Step 12 :Commit changes made in your yml code for CI_CD pipeline.
+
 Step 13 :Watch CI_CD flow in action & if any error accure debug it.
+
 Step 14 : Test the work-flow by making changes in local repo and check if its reflecting on server.
